@@ -41,6 +41,7 @@ const AppProvider = ({ children }) => {
             value={{
                 month,
                 expenseSummaryData,
+                expenseDetailsData,
                 totalExpenses,
                 expenseCategories,
                 expenseIdToBeDeleted,
