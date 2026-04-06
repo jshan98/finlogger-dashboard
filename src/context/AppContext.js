@@ -14,18 +14,46 @@ const AppProvider = ({ children }) => {
     const [expenseCategories, setExpenseCategories] = useState(null);
     const [expenseIdToBeDeleted, setexpenseIdToBeDeleted] = useState(null);
 
+    // Function to fetch expense categories data from the API
     const fetchExpenseCategories = async () => {
         setExpenseCategories(categoriesData.categories);
     }
 
+    // Function to fetch expense & summary data from the API
     const fetchExpenseData = async () => {
         setExpenseSummaryData(summaryData);
         setTotalExpenses(expenseData.totalExpenses);
         setExpenseDetailsData(expenseData.expenses);
     }
 
+    // fetch expense & summary data on initial load and when the month changes
+    useEffect(() => {
+        fetchExpenseData();
+    }, [month]);
+
+    // fetch expense categories data when the month changes
+    useEffect(() => {
+        fetchExpenseCategories();
+    }, []);
+
+    return (
+        <AppContext.Provider
+            value={{
+                month,
+                expenseSummaryData,
+                totalExpenses,
+                expenseCategories,
+                expenseIdToBeDeleted,
+                setMonth,
+                setexpenseIdToBeDeleted,
+                fetchExpenseData
+            }} >
+            {children}
+        </AppContext.Provider>
+    );
 };
 
+// Custom hook to use AppContext in other components
 export const useAppContext = () => {
     return useContext(AppContext);
 };
