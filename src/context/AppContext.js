@@ -6,7 +6,7 @@ import { expenseData, expenseSummaryData as summaryData, expenseCategories as ca
 // Create a new context for the app
 const AppContext = createContext();
 
-const AppProvider = ({ children }) => {
+export const AppProvider = ({ children }) => {
     const [month, setMonth] = useState("2020-01");
     const [expenseSummaryData, setExpenseSummaryData] = useState(null);
     const [expenseDetailsData, setExpenseDetailsData] = useState(null);
