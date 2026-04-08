@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { Header } from './components/Header';
+import Header from './components/Header';
 import { Overview } from './components/Overview';
 import { ExpenseSummary } from './components/ExpenseSummary';
 import { ExpenseDetails } from './components/ExpenseDetails';
@@ -26,13 +26,10 @@ function AppContent() {
 
   return(
     <div className='App'>
+      <Header />
       <ExpenseModalProvider>
-        {/* Header */}
         <Container fluid='lg'>
-          {/* Overview */}
           <Row className='tbl-container'>
-            {/* ExpenseSummary */}
-            {/* ExpenseDetails */}
           </Row>
         </Container >
       </ExpenseModalProvider>
