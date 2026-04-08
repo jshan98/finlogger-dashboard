@@ -5,7 +5,7 @@ import ExpenseModal from '../components/ExpenseModal';
 
 const ExpenseModalContext = createContext();
 
-const ExpenseModalProvider = ({ children }) => {
+export const ExpenseModalProvider = ({ children }) => {
     const [showModal, setShowModal] = useState(false);
     const [modalMode, setModalMode] = useState(null);
     const [modalData, setModalData] = useState({
