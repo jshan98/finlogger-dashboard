@@ -1,7 +1,7 @@
 // AppContext.js
 
 import { createContext, useContext, useState, useEffect } from "react";
-import { expenseData, expenseSummaryData as summaryData, expenseCategories as categoriesData } from 'data.js';
+import { expenseData, expenseSummaryData as summaryData, expenseCategories as categoriesData } from '../data';
 
 // Create a new context for the app
 const AppContext = createContext();
