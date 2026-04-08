@@ -9,9 +9,16 @@ import { Container, Row } from 'react-bootstrap';
 import { user } from './data';
 import { AppProvider, useAppContext } from './context/AppContext';
 
+/**
+ * Function: AppContent
+ * Description: 
+ * @param none
+ * @returns JSX for app content containing app compoenents
+ */
 function AppContent() {
   const {month, expenseSummaryData, expenseDetailsData, totalExpenses, setMonth} = useAppContext();
 
+  // handles the month change by setting month, expenseSummaryData, expenseDetailsData, and totalExpenses
   const handleMonthChange = (event) => {
     setMonth(event.target.value);
     //Set expenseSummaryData, expenseDetailsData, overviewCardData
@@ -33,6 +40,12 @@ function AppContent() {
   );
 }
 
+/**
+ * Function: App
+ * Description:
+ * @param none
+ * @returns App content wrapped in AppProvider
+ */
 function App() {
   return (
     <AppProvider >
