@@ -1,9 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Header from './components/Header';
-import Overview from './components/Overview';
-import ExpenseSummary from './components/ExpenseSummary';
-import ExpenseDetails from './components/ExpenseDetails';
+import { Header } from './components/Header';
+import { Overview } from './components/Overview';
+import { ExpenseSummary } from './components/ExpenseSummary';
+import { ExpenseDetails } from './components/ExpenseDetails';
 import { ExpenseModalProvider } from './context/ExpenseModalContext';
 import { Container, Row } from 'react-bootstrap';
 import { user } from './data';
@@ -14,17 +14,18 @@ function AppContent() {
 
   const handleMonthChange = (event) => {
     setMonth(event.target.value);
+    //Set expenseSummaryData, expenseDetailsData, overviewCardData
   };
 
   return(
     <div className='App'>
-      <Header />
       <ExpenseModalProvider>
+        {/* Header */}
         <Container fluid='lg'>
-          <Overview />
+          {/* Overview */}
           <Row className='tbl-container'>
-            <ExpenseSummary />
-            <ExpenseDetails />
+            {/* ExpenseSummary */}
+            {/* ExpenseDetails */}
           </Row>
         </Container >
       </ExpenseModalProvider>
