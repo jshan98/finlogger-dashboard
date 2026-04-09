@@ -29,8 +29,12 @@ function AppContent() {
       <Header />
       <ExpenseModalProvider>
         <Container fluid='lg'>
-          <Overview month={month} handleMonthChange={handleMonthChange} totalExpenses={totalExpenses} userIncome={user.income}/>
+            <div>
+              <Overview month={month} handleMonthChange={handleMonthChange} totalExpenses={totalExpenses} userIncome={user.income}/>
+            </div>
           <Row className='tbl-container'>
+            {/* Will render ExpenseSummary if expenseSummaryData exists */}
+            {expenseDetailsData ? (<ExpenseSummary data={expenseSummaryData} />) : (<div>Loading Expense Summary data...</div>)}
           </Row>
         </Container >
       </ExpenseModalProvider>
