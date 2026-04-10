@@ -1,6 +1,7 @@
 import { Table, Col } from "react-bootstrap";
 import DeleteConfirmationModal from './DeleteConfirmationModal';
 import { useExpenseModalContext } from "../context/ExpenseModalContext";
+import { useAppContext } from "../context/AppContext";
 import { useState } from "react";
 
 /**
@@ -14,11 +15,18 @@ function updateDateFormat(date){
     const month = d1.toLocaleString("en-us", {month:"short"});
     const day = d1.getDate();
     const dayOfWeek = d1.toLocaleString("en-us", {weekday:"short"});
-    return ('${month}${day},${dayOfWeek}');
+    return (`${month} ${day}, ${dayOfWeek}`); //Note to self: use => ` <= with date formats and not => ' <= (Addendum: arrows are only for emphasis)
 }
 
+/**
+ * Function: ExpenseDetails
+ * Description: Handles the editing and deleting of an expense. Also handles the showing and closing of the ExpenseModal
+ * @param {*} data
+ * @returns JSX for ExpenseDetails component
+ */
 function ExpenseDetails({data}){
     const { handleShow } = useExpenseModalContext();
+    const { setExpenseIdToBeDeleted } = useAppContext();
     const {showDM, setShowDM} = useState(false);
 
     const handleEdit = (event, expenseData) => {
@@ -37,9 +45,11 @@ function ExpenseDetails({data}){
     }
 
     {/* Left intentionally empty until next stage of project */}
+    /*
     handleDelete = () => {
 
     }
+    */
 
     const tableItems = data.map((expense) => {
         return (
@@ -84,7 +94,7 @@ function ExpenseDetails({data}){
             {showDM && <DeleteConfirmationModal 
                 showDM={showDM}
                 handleClose={handleClose}
-                handleDelete={handleDelete}
+                //handleDelete={handleDelete} // To be defined
             />}
         </Col>
     );
