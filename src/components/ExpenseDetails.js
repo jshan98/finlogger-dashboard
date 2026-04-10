@@ -40,7 +40,7 @@ function ExpenseDetails({data}){
         setExpenseIdToBeDeleted(expenseId);
     } 
 
-    const handleClose = () => {
+    const handleDMClose = () => {
         setShowDM(false);
     }
 
@@ -93,7 +93,7 @@ function ExpenseDetails({data}){
             </Table>
             {showDM && <DeleteConfirmationModal 
                 showDM={showDM}
-                handleClose={handleClose}
+                handleDMClose={handleDMClose}
                 handleDelete={handleDelete} // To be defined
             />}
         </Col>
