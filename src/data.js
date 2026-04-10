@@ -18,7 +18,7 @@ let expenseData = {
         {
             "_id": "6614df9c9b1af2b777d14da7",
             "description": "Car Maintenance",
-            "amount": 90,
+            "amount": 110,
             "date": "2020-01-24T00:00:00.000Z",
             "categoryName": "Transportation"
         },
