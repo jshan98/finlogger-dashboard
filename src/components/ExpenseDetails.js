@@ -40,16 +40,16 @@ function ExpenseDetails({data}){
         setExpenseIdToBeDeleted(expenseId);
     } 
 
-    const handleClose = () => {
+    const handleDMClose = () => {
         setShowDM(false);
     }
 
     {/* Left intentionally empty until next stage of project */}
-    /*
-    handleDelete = () => {
-
+    
+    const handleDelete = () => {
+        console.log("Delete Selected");
     }
-    */
+    
 
     const tableItems = data.map((expense) => {
         return (
@@ -93,8 +93,8 @@ function ExpenseDetails({data}){
             </Table>
             {showDM && <DeleteConfirmationModal 
                 showDM={showDM}
-                handleClose={handleClose}
-                //handleDelete={handleDelete} // To be defined
+                handleDMClose={handleDMClose}
+                handleDelete={handleDelete} // To be defined
             />}
         </Col>
     );

@@ -12,7 +12,7 @@ export const AppProvider = ({ children }) => {
     const [expenseDetailsData, setExpenseDetailsData] = useState(null);
     const [totalExpenses, setTotalExpenses] = useState(0);
     const [expenseCategories, setExpenseCategories] = useState(null);
-    const [expenseIdToBeDeleted, setexpenseIdToBeDeleted] = useState(null);
+    const [expenseIdToBeDeleted, setExpenseIdToBeDeleted] = useState(null);
 
     // Function to fetch expense categories data from the API
     const fetchExpenseCategories = async () => {
@@ -46,7 +46,7 @@ export const AppProvider = ({ children }) => {
                 expenseCategories,
                 expenseIdToBeDeleted,
                 setMonth,
-                setexpenseIdToBeDeleted,
+                setExpenseIdToBeDeleted,
                 fetchExpenseData
             }} >
             {children}
