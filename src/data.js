@@ -215,3 +215,5 @@ let expenseCategories = {
     "Utilities",
   ],
 };
+
+export {expenseData, expenseSummaryData, user, expenseCategories};

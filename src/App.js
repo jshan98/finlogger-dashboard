@@ -1,12 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { Header } from './components/Header';
-import { Overview } from './components/Overview';
-import { ExpenseSummary } from './components/ExpenseSummary';
-import { ExpenseDetails } from './components/ExpenseDetails';
+import Header from './components/Header';
+import Overview from './components/Overview';
+import ExpenseSummary from './components/ExpenseSummary';
+import ExpenseDetails from './components/ExpenseDetails';
 import { ExpenseModalProvider } from './context/ExpenseModalContext';
 import { Container, Row } from 'react-bootstrap';
-import { user } from './data';
+import { user } from "./data";
 import { AppProvider, useAppContext } from './context/AppContext';
 
 /**
@@ -26,13 +26,17 @@ function AppContent() {
 
   return(
     <div className='App'>
+      <Header />
       <ExpenseModalProvider>
-        {/* Header */}
         <Container fluid='lg'>
-          {/* Overview */}
+            <div>
+              <Overview month={month} handleMonthChange={handleMonthChange} totalExpenses={totalExpenses} userIncome={user.income}/>
+            </div>
           <Row className='tbl-container'>
-            {/* ExpenseSummary */}
-            {/* ExpenseDetails */}
+            {/* Will render ExpenseSummary if expenseSummaryData exists */}
+            {expenseDetailsData ? (<ExpenseSummary data={expenseSummaryData} />) : (<div>Loading Expense Summary data...</div>)}
+            {/* Will render ExpenseDetails if expenseSummaryData exists */}
+            {expenseDetailsData ? (<ExpenseDetails data={expenseDetailsData} />) : (<div>Loading Expense Details data...</div>)}
           </Row>
         </Container >
       </ExpenseModalProvider>
