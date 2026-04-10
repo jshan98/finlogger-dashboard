@@ -34,7 +34,7 @@ function AppContent() {
             </div>
           <Row className='tbl-container'>
             {/* Will render ExpenseSummary if expenseSummaryData exists */}
-            {expenseDetailsData ? (<ExpenseSummary data={expenseSummaryData} />) : (<div>Loading Expense Summary data...</div>)}
+            {expenseSummaryData ? (<ExpenseSummary data={expenseSummaryData} />) : (<div>Loading Expense Summary data...</div>)}
             {/* Will render ExpenseDetails if expenseSummaryData exists */}
             {expenseDetailsData ? (<ExpenseDetails data={expenseDetailsData} />) : (<div>Loading Expense Details data...</div>)}
           </Row>

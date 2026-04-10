@@ -27,11 +27,11 @@ function updateDateFormat(date){
 function ExpenseDetails({data}){
     const { handleShow } = useExpenseModalContext();
     const { setExpenseIdToBeDeleted } = useAppContext();
-    const {showDM, setShowDM} = useState(false);
+    const [showDM, setShowDM] = useState(false);
 
-    const handleEdit = (event, expenseData) => {
+    const handleEdit = (event, expense) => {
         event.preventDefault();
-        handleShow("edit", "expense");
+        handleShow("edit", expense);
     }
 
     const handleDMShow = (event, expenseId) => {
